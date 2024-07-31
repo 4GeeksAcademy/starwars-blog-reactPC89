@@ -9,9 +9,6 @@ export const Navbar = () => {
 			<Link to="/">
 				<img src="https://upload.wikimedia.org/wikipedia/commons/2/21/Star_Wars_logo.png" style={{ width: "150px", flex: "none", margin: "5px" }} alt="Home icon" />
 			</Link>
-			<Link to="/create-card">
-			<button type="button" class="btn btn-outline-warning">Your creations</button>
-			</Link>		
 			<div className="ml-auto">
 				<div className="dropdown">
 					<button className="btn btn-outline-warning dropdown-toggle me-2" type="button" data-bs-toggle="dropdown" aria-expanded="false">
