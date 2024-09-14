@@ -11,7 +11,7 @@ export const ContenedorPersonajes = () => {
     useEffect(() => {
         actions.obtenerPersonajes()
     }, [])
-    console.log(store.characters);
+    
     return (
         <div className="text-center">
             <div>
