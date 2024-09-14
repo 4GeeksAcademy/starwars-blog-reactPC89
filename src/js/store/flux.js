@@ -4,8 +4,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			characters: [],
 			planets: [],
+			vehicles: [],
 			character: {},
 			planet: {},
+			vehicle: {},
 			favoritesList: [],
 
 		},
@@ -43,6 +45,23 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			},
 
+			obtenerVehiculos: async () => {
+				try {
+					const response = await fetch(`https://swapi.dev/api/vehicles/`, {
+						method: `GET`,
+					})
+					if (response.ok) {
+						const data = await response.json()
+						setStore({ vehicles: data.results })
+					}
+				}
+				catch (error) {
+					console.log(error);
+					return false;
+				}
+			},
+
+
 			obtenerPersonajeDetails: async (id) => {
 				try {
 					const response = await fetch(`https://swapi.dev/api/people/${id}`, {
@@ -67,6 +86,22 @@ const getState = ({ getStore, getActions, setStore }) => {
 					if (response.ok) {
 						const data = await response.json()
 						setStore({ planet: data })
+					}
+				}
+				catch (error) {
+					console.log(error);
+					return false;
+				}
+			},
+
+			obtenerVehicleDetails: async (id) => {
+				try {
+					const response = await fetch(`https://swapi.dev/api/vehicles/${id}`, {
+						method: `GET`,
+					})
+					if (response.ok) {
+						const data = await response.json()
+						setStore({ vehicle: data })
 					}
 				}
 				catch (error) {
