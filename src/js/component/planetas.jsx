@@ -17,7 +17,13 @@ export const Planetas = ({ name, population, terrain, id }) => {
             <div className="row">
                 <div className="col-3">
                     <div className="card bg-black text-secondary border border-info" style={{ width: "18rem", flex: "none", margin: "10px" }}>
-                        <img src={`https://starwars-visualguide.com/assets/img/planets/${id}.jpg`} className="card-img-top" alt={name} />
+                    <img
+                            src={id == "1"
+                                ? `https://static.wikia.nocookie.net/esstarwars/images/b/b0/Tatooine_TPM.png/revision/latest?cb=20131214162357`
+                                : `https://starwars-visualguide.com/assets/img/planets/${id}.jpg`}
+                            className="card-img-top"
+                            alt={store.planet.name}
+                    />
                         <div className="card-body">
                             <h5 className="card-title">Name: {name}</h5>
                             <p className="card-text">Population: {population}</p>

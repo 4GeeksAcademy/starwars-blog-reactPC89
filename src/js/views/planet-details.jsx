@@ -17,7 +17,9 @@ export const PlanetDetails = () => {
                 <div className="col-md-4">
                     <div className="card" style={{ width: "100%", margin: "10px" }}>
                         <img
-                            src={`https://starwars-visualguide.com/assets/img/planets/${id}.jpg`}
+                            src={id == "1"
+                                ? `https://static.wikia.nocookie.net/esstarwars/images/b/b0/Tatooine_TPM.png/revision/latest?cb=20131214162357`
+                                : `https://starwars-visualguide.com/assets/img/planets/${id}.jpg`}
                             className="card-img-top"
                             alt={store.planet.name}
                         />
@@ -25,7 +27,7 @@ export const PlanetDetails = () => {
                 </div>
 
                 <div className="col-md-8 d-flex flex-column p-4 justify-content-center">
-                    <h3 className="card-title text-start text-light">{store.planet.name}</h3>
+                    <h3 className="card-title text-start text-warning">{store.planet.name}</h3>
                     <p className="text-start text-light">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, fugiat? Quas quia, minima omnis minus odio labore harum incidunt nam, dolore tempore reiciendis animi autem. Necessitatibus culpa ex odit ut?
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. In natus ratione laborum explicabo aliquam suscipit, consequatur voluptatibus iusto aut ipsam! Pariatur excepturi animi sit illum quod perferendis beatae ducimus quo?

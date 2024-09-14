@@ -21,7 +21,7 @@ export const PersonajesDetails = () => {
                 </div>
 
                 <div className="col-md-8 d-flex flex-column p-4 justify-content-center">
-                    <h3 className="card-title text-start text-light">{store.character.name}</h3>
+                    <h3 className="card-title text-start text-warning">{store.character.name}</h3>
                     <p className="text-start text-light">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. In natus ratione laborum explicabo aliquam suscipit, consequatur voluptatibus iusto aut ipsam! Pariatur excepturi animi sit illum quod perferendis beatae ducimus quo?
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, fugiat? Quas quia, minima omnis minus odio labore harum incidunt nam, dolore tempore reiciendis animi autem. Necessitatibus culpa ex odit ut?
