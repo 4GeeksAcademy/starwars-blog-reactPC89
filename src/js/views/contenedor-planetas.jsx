@@ -18,7 +18,7 @@ export const ContenedorPlanetas = () => {
                 <h1 className="fw-semibold text-info text-opacity-50">Planets</h1>
             </div>
             <div className="card-group">
-                <div className="d-flex flex-row overflow-scroll">
+                <div className="d-flex flex-row overflow-scroll custom-scrollbar">
                     {store.planets.map((item, index) => (
                         <Planetas
                             key={index}

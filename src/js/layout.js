@@ -12,6 +12,7 @@ import { Footer } from "./component/footer";
 import { PersonajesDetails } from "./views/personajes-details.jsx";
 import { PlanetDetails } from "./views/planet-details.jsx";
 import { VehiclesDetails } from "./views/vehicles-details.jsx";
+import SearchBar from "./component/SearchBar.js";
 
 //create your first component
 const Layout = () => {
@@ -24,6 +25,7 @@ const Layout = () => {
 			<BrowserRouter basename={basename}>
 				<ScrollToTop>
 					<Navbar />
+					<SearchBar />
 					<Routes>
 						<Route path="/" element={<Home />} />
 						<Route path="/personajes-details/:id" element={<PersonajesDetails />} />
