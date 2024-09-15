@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect, useRef } from "react";
 import { Context } from "../store/appContext";
 import { useNavigate } from "react-router-dom";
 
@@ -7,11 +7,17 @@ const SearchBar = () => {
     const navigate = useNavigate();
     const [searchTerm, setSearchTerm] = useState("");
     const [suggestions, setSuggestions] = useState([]);
+    const searchBarRef = useRef(null);
 
     const handleInputChange = (e) => {
         const term = e.target.value.toLowerCase();
         setSearchTerm(term);
-        
+
+        if (term.trim() === "") {
+            setSuggestions([]);
+            return;
+        }
+
         const filteredCharacters = store.characters.filter(character =>
             character.name.toLowerCase().includes(term)
         );
@@ -26,7 +32,7 @@ const SearchBar = () => {
     };
 
     const handleSelectSuggestion = (item) => {
-        const id = item.url.split('/').filter(Boolean).pop();   
+        const id = item.url.split('/').filter(Boolean).pop();
         if (item.url.includes("people")) {
             navigate(`/personajes-details/${id}`);
         } else if (item.url.includes("planets")) {
@@ -34,14 +40,33 @@ const SearchBar = () => {
         } else if (item.url.includes("vehicles")) {
             navigate(`/vehicles-details/${id}`);
         }
-   
+
         setSearchTerm("");
         setSuggestions([]);
     };
-    
+
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (searchBarRef.current && !searchBarRef.current.contains(event.target)) {
+                setSuggestions([]);
+            }
+        };
+
+        document.addEventListener("mousedown", handleClickOutside);
+
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, []);
+
+    useEffect(() => {
+        if (searchTerm === "") {
+            setSuggestions([]);
+        }
+    }, [searchTerm]);
 
     return (
-        <div className="search-container">
+        <div className="search-container" ref={searchBarRef}>
             <input
                 type="text"
                 className="search-input"
@@ -63,3 +88,4 @@ const SearchBar = () => {
 };
 
 export default SearchBar;
+
