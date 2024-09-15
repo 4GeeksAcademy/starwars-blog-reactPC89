@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
 
-export const Personajes = ({ name, gender, hair_color, eye_color, id }) => {
+export const Vehiculos = ({ name, model, cargo_capacity, id }) => {
 
     const { store, actions } = useContext(Context)
 
@@ -12,24 +12,22 @@ export const Personajes = ({ name, gender, hair_color, eye_color, id }) => {
         }
         return false
     }
-
-
     return (
         <div className="text-center m-2">
             <div className="row">
                 <div className="col-3">
                     <div className="card bg-black text-secondary border border-info" style={{ width: "18rem", flex: "none", margin: "10px" }}>
-                        <img src={`https://starwars-visualguide.com/assets/img/characters/${id}.jpg`}
+                    <img
+                            src={`https://starwars-visualguide.com/assets/img/vehicles/${id}.jpg`}
                             className="card-img-top"
-                            alt={name}
-                        />
+                            alt={store.vehicle.name}
+                    />
                         <div className="card-body">
                             <h5 className="card-title">Name: {name}</h5>
-                            <p className="card-text">Gender: {gender}</p>
-                            <p className="card-text">Hair Color: {hair_color}</p>
-                            <p className="card-text">Eyes Color: {eye_color}</p>
+                            <p className="card-text">Model: {model}</p>
+                            <p className="card-text">Cargo Capacity: {cargo_capacity}</p>
                             <div className="d-flex  justify-content-between">
-                                <Link to={`/personajes-details/${id}`}>
+                                <Link to={`/planet-details/${id}`}>
                                     <button className="btn btn-outline-primary float-start">
                                         Learn more!
                                     </button>
@@ -38,12 +36,10 @@ export const Personajes = ({ name, gender, hair_color, eye_color, id }) => {
                                     <i className={isFavorite(name) ? "fa fa-heart text-danger" : "fa fa-heart"}></i>
                                 </button>
                             </div>
-
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
     )
 };
