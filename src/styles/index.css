@@ -8,7 +8,7 @@
 }
 
 html {
-    font-size: 19px;
+    font-size: 1.5rem;
 }
 
 .navbar {
@@ -57,7 +57,7 @@ html {
 }
 
 .search-input:focus {
-    border-color: #007bff;
+    border-color: #FFC107;
     box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
 }
 

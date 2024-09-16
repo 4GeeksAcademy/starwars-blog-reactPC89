@@ -66,10 +66,10 @@ const SearchBar = () => {
     }, [searchTerm]);
 
     return (
-        <div className="search-container" ref={searchBarRef}>
+        <div className="search-container mb-3 mt-0" ref={searchBarRef}>
             <input
                 type="text"
-                className="search-input"
+                className="search-input fs-6"
                 placeholder="Search for characters, planets, vehicles..."
                 value={searchTerm}
                 onChange={handleInputChange}
